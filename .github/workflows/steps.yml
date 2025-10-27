@@ -9,7 +9,7 @@ jobs:
             - name: Build step
               run: |
                 echo "This is build step with job '${{github.job}}'"
-              working-directory: ./temp
+              working-directory: .
               shell: bash # or: pwsh, cmd, powershell, python 
 
             - name: Perl
