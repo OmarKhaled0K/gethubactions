@@ -1,0 +1,11 @@
+name: Schedule trigger
+on:
+    schedule: 
+        - cron: "0 0 * * *"
+
+jobs:
+    daily-task:
+        runs-on: ubuntu-latest
+        steps:
+            - name: This is a schedule task
+              run: echo "Run a schedule task"
