@@ -24,7 +24,7 @@ jobs:
 
     deliver:
         runs-on: ubuntu-latest
-        needs: [build,deploy]
+        needs: [test, deploy]
         steps:
             - name: Deliver step
               run: echo "This is deliver step with job '${{github.job}}'"
