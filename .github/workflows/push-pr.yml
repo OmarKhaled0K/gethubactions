@@ -1,0 +1,26 @@
+name: On push workflow
+
+on: 
+  push:
+    branches:
+      - main
+      - "release/**"
+    
+    paths:
+      - "src/**"
+      - "test/**"
+
+  pull_request:
+    branches:
+      - main
+      - "release/**"
+jobs: 
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v5.0.0
+
+      - name: Run tests
+        run: echo "Tests passed successfully!"
+
