@@ -1,0 +1,21 @@
+name: Jobs workflow
+on:
+    workflow_dispatch:
+        
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Build step
+              run: |
+                echo "This is build step with job '${{github.job}}'"
+              working-directory: ./temp
+              shell: bash # or: pwsh, cmd, powershell, python 
+
+            - name: Perl
+              run: print %ENV
+              shell: perl {0}
+
+
+
+    
