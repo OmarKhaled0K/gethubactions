@@ -1,6 +1,17 @@
 name: Manual trigger
 on:
     workflow_dispatch:
+        inputs:
+            environment:
+                description: "Choose an environment"
+                required: true
+                default: "staging"
+                type: choice
+                options:
+                    - staging
+                    - production
+                    
+
 
 jobs:
     deploy:
