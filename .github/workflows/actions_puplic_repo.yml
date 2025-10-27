@@ -1,0 +1,32 @@
+name: Actions workflow
+on:
+    workflow_dispatch:
+        
+jobs:
+    # action-job:
+    #     runs-on: ubuntu-latest
+    #     steps:
+    #         - name: Checkout repo
+    #           # uses: actions/checkout@v5.0.0 # Momkn tkhleh al path (asm al dir w asm al action) 
+    #                                         # Msln: .github/actions/Greeting@v1
+    #           uses: .github/actions/Greeting@v1
+    #           with: # Al variables bta3t al action da
+    #             name: Ahmed
+    #           env:
+    #             GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+    hybrid-job:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Run a command in Ubuntu VM
+          run: echo "This runs on Ubuntu VM"
+
+        - name: Run inside an Alpine container
+          uses: docker://alpine:3.22 # The image must be publicly accessible with docker hub without any authentication
+          with: 
+            entrypoint: /bin/sh
+            args: |
+                -c "echo 'This runs inside an Alpine container' " 
+        
+        - name: Run another command in Ubuntu VM
+          run: echo "Back to Ubuntu VM"
