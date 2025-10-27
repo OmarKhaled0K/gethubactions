@@ -30,3 +30,11 @@ jobs:
         
         - name: Run another command in Ubuntu VM
           run: echo "Back to Ubuntu VM"
+    
+    dockerized_job:
+      runs-on: ubuntu-latest
+      container: python:3.15-rc-slim⁠
+      steps:
+        - run: python --version
+        - run: echo "This job run inside docker container"
+        
