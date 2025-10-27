@@ -1,4 +1,4 @@
-name: Manual trigger
+name: API Manual trigger
 on:
     repository_dispatch:
         types: [incident_report] # it can be newline - incident_report
