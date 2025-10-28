@@ -16,4 +16,7 @@ jobs:
                 fi
             # Da convention kda, lw hnst5dm warning aw error aw message type, b3ml -> "::type::message"
             # F ay conditional block lazm t2flo b `fi`
-            
+            - name: Set API key
+              run: echo "API_KEY=12345" >> $GITHUB_ENV
+            - name: Get API key
+              run: echo "The API_KEY is $API_KEY"
