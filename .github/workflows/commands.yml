@@ -21,4 +21,8 @@ jobs:
             - name: Get API key
               run: echo "The API_KEY is $API_KEY"
             - name: Error message
-              run: echo "::error::This is error message"
+              run: |
+                if [ -f "config.yml"]; then
+                    echo "::debug::`config.yml` file exists"
+                else 
+                    echo "::error::`config.yml` is missing"
