@@ -1,0 +1,19 @@
+name: Command Workflow
+
+on:
+    workflow_dispatch:
+
+
+jobs:
+    commands:
+        runs-on: ubuntu-latest
+        steps:
+            - name: First step
+              run: | # Concider there's a deprecated function for example
+                deprecated=true
+                if [[ deprecated ]]; then
+                    echo "::warning::Deprecated function found"
+                fi
+            # Da convention kda, lw hnst5dm warning aw error aw message type, b3ml -> "::type::message"
+            # F ay conditional block lazm t2flo b `fi`
+            
