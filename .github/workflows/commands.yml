@@ -23,7 +23,7 @@ jobs:
             - name: Error message
               run: |
                 if [ -f "config.yml" ]; then
-                    echo "::debug::`config.yml` file exists"
+                    echo "::debug::config.yml file exists"
                 else 
-                    echo "::error::`config.yml` is missing"
+                    echo "::error::config.yml file is missing"
                 fi
