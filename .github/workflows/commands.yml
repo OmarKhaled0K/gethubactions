@@ -27,3 +27,9 @@ jobs:
                 else 
                     echo "::error::config.yml file is missing"
                 fi
+            - name: Set password
+              run: echo "PASSWORD=12345" >> $GITHUB_ENV
+            - name: Masking Password
+              run: |
+                echo "::add-mask::$PASSWORD"
+                echo "Using password'$PASSWORD'"
