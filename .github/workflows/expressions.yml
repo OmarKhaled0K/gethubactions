@@ -1,0 +1,27 @@
+name: Expression workflow
+on:
+    workflow_dispatch:
+        
+jobs:
+    expressions: # Conditional step
+        runs-on: ubuntu-latest
+        steps:
+            - name: Print a PUSH message
+              run: echo "The event is 'PUSH'"
+              if: ${{github.event_name =='push'}}
+
+            - name: Print a PULL message
+              run: echo "The event is 'PULL'"
+              if: ${{github.event_name =='pull_request'}}
+            - name: Print different message
+              run: echo "The event is not 'PUSH' or 'PULL'"
+              if: ${{github.event_name != 'push' && github.event_name !='pull_request'}}
+            # - name: Print the commit message
+            #   run: echo "The commit message is '${{github.event.head_commit.message}}'" # De m3 al push bs
+            #   if: ${{contains(github.event.head_commit.message,'WIP')}} # De m3 al push bs
+            - name: Job run succeessfully
+              run: echo "Job run successfully" 
+              if: success()
+            - name: Job failed
+              run: echo "Job failed" 
+              if: failure()
